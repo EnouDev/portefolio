@@ -37,9 +37,8 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
 
-      - name: Start Component T esting
+      - name: Start Component Testing
         uses: cypress-io/github-action@v2
         with:
-          install: false
           commande: npx cypress run-ct
 
