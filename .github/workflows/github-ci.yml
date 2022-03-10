@@ -31,5 +31,6 @@ jobs:
       - name: Start Component Testing
         uses: cypress-io/github-action@v2
         with:
-          commande: npx cypress run-ct
+          install: false
+          command: npx cypress run-ct
 
