@@ -25,6 +25,12 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: save build
+        uses: actions/upload-artifact@v2
+        with:
+          name: node
+          path: node_modules/
+
       - name: Start Component Testing
         uses: cypress-io/github-action@v2
         with:
@@ -51,6 +57,12 @@ jobs:
         with:
           node-version: 14.18.3
           cache: 'npm'
+
+      - name: dl node modules
+        uses: actions/download-artifact@v3
+        with:
+          name: node
+
 
       - name: ll
         run: ls & ls -l
