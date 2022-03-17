@@ -23,7 +23,7 @@ jobs:
 
 
       - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.node.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Start Component Testing
@@ -54,7 +54,7 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.node.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Build
@@ -64,4 +64,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build
-          path: dist
+          path: dist/
