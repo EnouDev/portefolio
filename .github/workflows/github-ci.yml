@@ -23,7 +23,6 @@ jobs:
 
 
       - name: Install Dependencies
-        if: steps.node.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Start Component Testing
