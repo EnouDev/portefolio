@@ -18,20 +18,7 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: 14.18.3
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        id: cache
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
+          cache: 'npm'
 
 
       - name: Install Dependencies
@@ -62,19 +49,7 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: 14.18.3
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        id: cache
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-        
+          cache: 'npm'
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
