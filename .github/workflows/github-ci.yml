@@ -53,13 +53,12 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        if: steps.node.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Build
         run: npm run build
 
-      - name: Record test failure
+      - name: save build
         uses: actions/upload-artifact@v2
         with:
           name: build
