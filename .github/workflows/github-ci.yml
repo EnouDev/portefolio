@@ -21,7 +21,8 @@ jobs:
           node-version: 14.18.3
           cache: 'npm'
 
-
+      - name: ll
+        run: ls & ls -l
       - name: Install Dependencies
         run: npm ci
 
